@@ -17,6 +17,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Product from "./pages/Product";
 import SingleBlog from "./pages/SingleBlog";
+import Contact from "./pages/Contact";
 import Login from "./components/auth/Login";
 import SignUp from "./components/auth/SignUp";
 import ForgotPassword from "./components/auth/ForgotPassword";
@@ -38,6 +39,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/product" element={<Product />} />
           <Route path="/singleBlog" element={<SingleBlog />} />
+          <Route path="/contactus" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

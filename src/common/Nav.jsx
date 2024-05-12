@@ -30,7 +30,7 @@ function Nav() {
                         <Link className="nav-link" to="/blog">Updates</Link>
                     </li>
                     <li className="nav-item dropdown">
-                        <Link className="nav-link" to="/">Contact us</Link>
+                        <Link className="nav-link" to="/contactus">Contact us</Link>
                     </li>
                 </ul>
             ) : (
