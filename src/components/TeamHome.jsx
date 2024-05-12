@@ -36,7 +36,7 @@ function TeamHome() {
                 <p className="lead mb-0 title-text-left-line-small">at Lecturepedia</p>
               </div>
               <div className="col-lg-6 align-self-center mt-5 mt-lg-0 text-left text-lg-right">
-                   <Link to="blog-slice-revealer.html" className="btn btn-dark-1 animsition-link">View All<i className="uil uil-arrow-right size-22 ml-3"></i></Link>
+                   <Link to="/" className="btn btn-dark-1 animsition-link">View All<i className="uil uil-arrow-right size-22 ml-3"></i></Link>
               </div>
             </div>
           </div>

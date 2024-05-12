@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import course from "../assets/img/project-24.jpg"
 import t1 from "../assets/img/t1.jpg"
 
@@ -42,7 +43,7 @@ function RelatedProduct({ product }) {
                 </div>
                 <div className="shop-wrap-2-right">
                     <a href={product.image} className="shop-wrap-2-right-circle" data-fancybox=""><i className="uil uil-search size-16"></i></a>
-                    <a href={`product-${product.id}.html`} className="shop-wrap-2-right-circle mt-2"><i className="uil uil-plus size-16"></i></a>
+                    <a href={`product`} className="shop-wrap-2-right-circle mt-2"><i className="uil uil-plus size-16"></i></a>
                     <a href="#" className="shop-wrap-2-right-circle mt-2"><i className="uil uil-heart size-16"></i></a>
                 </div>
                 <div className="shop-wrap-2-text">
@@ -273,7 +274,7 @@ function Product() {
                                         </div>
                                     </div>
                                     <div className="col-sm mt-2 mt-sm-0 pl-sm-0">
-                                        <a href="#" className="btn btn-dark-primary"><i className="uil uil-cart size-20 mr-2"></i>Add to cart</a>
+                                        <Link to="/cart" className="btn btn-dark-primary"><i className="uil uil-cart size-20 mr-2"></i>Add to cart</Link>
                                     </div>
                                 </div>
                                 <div className="row">

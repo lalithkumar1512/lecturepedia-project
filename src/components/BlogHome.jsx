@@ -49,7 +49,7 @@ function BlogHome() {
                                 </h3>
                             </div>
                             <div className="col-lg-6 align-self-center mt-5 mt-lg-0 text-left text-lg-right">
-                                <Link to="blog-slice-revealer.html" className="btn btn-dark-1 animsition-link">View All<i className="uil uil-arrow-right size-22 ml-3"></i></Link>
+                                <Link to="/blog" className="btn btn-dark-1 animsition-link">View All<i className="uil uil-arrow-right size-22 ml-3"></i></Link>
                             </div>
                         </div>
                         <div className="row">
@@ -61,7 +61,7 @@ function BlogHome() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="section clearfix">
-                                                            <Link to="post-1.html" className="link-heading animsition-link">
+                                                            <Link to="/singleBlog" className="link-heading animsition-link">
                                                                 <img src={blogImage} alt="" />
                                                             </Link>
                                                         </div>
@@ -73,9 +73,9 @@ function BlogHome() {
                                                                 10.Sep
                                                             </p>
                                                             <h5 className="mb-4">
-                                                                <Link to="post-1.html" className="link-heading animsition-link">View of couple on road trip</Link>
+                                                                <Link to="/singleBlog" className="link-heading animsition-link">View of couple on road trip</Link>
                                                             </h5>
-                                                            <Link to="post-1.html" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
+                                                            <Link to="/singleBlog" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -86,7 +86,7 @@ function BlogHome() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="section clearfix">
-                                                            <Link to="post-1.html" className="link-heading animsition-link">
+                                                            <Link to="/singleBlog" className="link-heading animsition-link">
                                                                 <img src={blogImage} alt="" />
                                                             </Link>
                                                         </div>
@@ -98,9 +98,9 @@ function BlogHome() {
                                                                 10.Sep
                                                             </p>
                                                             <h5 className="mb-4">
-                                                                <Link to="post-1.html" className="link-heading animsition-link">View of couple on road trip</Link>
+                                                                <Link to="/singleBlog" className="link-heading animsition-link">View of couple on road trip</Link>
                                                             </h5>
-                                                            <Link to="post-1.html" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
+                                                            <Link to="/singleBlog" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,7 +111,7 @@ function BlogHome() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="section clearfix">
-                                                            <Link to="post-1.html" className="link-heading animsition-link">
+                                                            <Link to="/singleBlog" className="link-heading animsition-link">
                                                                 <img src={blogImage} alt="" />
                                                             </Link>
                                                         </div>
@@ -123,9 +123,9 @@ function BlogHome() {
                                                                 10.Sep
                                                             </p>
                                                             <h5 className="mb-4">
-                                                                <Link to="post-1.html" className="link-heading animsition-link">View of couple on road trip</Link>
+                                                                <Link to="/singleBlog" className="link-heading animsition-link">View of couple on road trip</Link>
                                                             </h5>
-                                                            <Link to="post-1.html" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
+                                                            <Link to="/singleBlog" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -136,7 +136,7 @@ function BlogHome() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="section clearfix">
-                                                            <Link to="post-1.html" className="link-heading animsition-link">
+                                                            <Link to="/singleBlog" className="link-heading animsition-link">
                                                                 <img src={blogImage} alt="" />
                                                             </Link>
                                                         </div>
@@ -148,9 +148,9 @@ function BlogHome() {
                                                                 10.Sep
                                                             </p>
                                                             <h5 className="mb-4">
-                                                                <Link to="post-1.html" className="link-heading animsition-link">View of couple on road trip</Link>
+                                                                <Link to="/singleBlog" className="link-heading animsition-link">View of couple on road trip</Link>
                                                             </h5>
-                                                            <Link to="post-1.html" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
+                                                            <Link to="/singleBlog" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -161,7 +161,7 @@ function BlogHome() {
                                                 <div className="row">
                                                     <div className="col-12">
                                                         <div className="section clearfix">
-                                                            <Link to="post-1.html" className="link-heading animsition-link">
+                                                            <Link to="/singleBlog" className="link-heading animsition-link">
                                                                 <img src={blogImage} alt="" />
                                                             </Link>
                                                         </div>
@@ -173,9 +173,9 @@ function BlogHome() {
                                                                 10.Sep
                                                             </p>
                                                             <h5 className="mb-4">
-                                                                <Link to="post-1.html" className="link-heading animsition-link">View of couple on road trip</Link>
+                                                                <Link to="/singleBlog" className="link-heading animsition-link">View of couple on road trip</Link>
                                                             </h5>
-                                                            <Link to="post-1.html" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
+                                                            <Link to="/singleBlog" className="link size-16 link-normal text-center-v animsition-link">More Details <i className="uil uil-arrow-right ml-2"></i></Link>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -9,7 +9,7 @@ const projects = [
     imageUrl: 'img/project-20.jpg',
     title: 'Mobil',
     description: 'branding, graphic design',
-    detailsLink: 'project-4.html',
+    detailsLink: 'product',
     fancyboxLink: 'img/project-20.jpg',
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     imageUrl: 'img/project-17.jpg',
     title: 'House 212',
     description: 'branding, art direction',
-    detailsLink: 'project-1.html',
+    detailsLink: 'product',
     fancyboxLink: 'img/project-17.jpg',
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     imageUrl: 'img/project-20.jpg',
     title: 'Mobil',
     description: 'branding, graphic design',
-    detailsLink: 'project-4.html',
+    detailsLink: 'product',
     fancyboxLink: 'img/project-20.jpg',
   }
 
@@ -47,7 +47,7 @@ const CoursesHome = () => {
               </div>
 
                  <div className="col-lg-6 align-self-center mt-5 mt-lg-0 text-left text-lg-right">
-                      <Link to="blog-slice-revealer.html" className="btn btn-dark-1 animsition-link">View All<i className="uil uil-arrow-right size-22 ml-3"></i></Link>
+                      <Link to="/courses" className="btn btn-dark-1 animsition-link">View All<i className="uil uil-arrow-right size-22 ml-3"></i></Link>
                  </div>
 
             </div>
@@ -56,26 +56,28 @@ const CoursesHome = () => {
         <div className="filter-wrapper-mix portfolio-1400">
           {projects.map(project => (
             <div key={project.id} className={`mix ${project.categories.join(' ')}`}>
-              <div className="portfolio-wrap-columns img-wrap mb-4">
-                <div className="section border-4 over-hide">
-                  <img src={Course} alt="" />
-                  <div className="wrap-mask-black"></div>
-                  <div className="portfolio-wrap-center-section text-center">
-                    <a href={project.fancyboxLink} data-fancybox="" className="btn btn-portfolio-icon mx-1">
-                      <i className="uil uil-heart size-23"></i>
-                    </a>
-                    <Link to={project.detailsLink} className="btn btn-portfolio-icon animsition-link mx-1">
-                      <i className="uil uil-star size-23"></i>
-                    </Link>
+                <Link to="/product" >
+                  <div className="portfolio-wrap-columns img-wrap mb-4">
+                    <div className="section border-4 over-hide">
+                      <img src={Course} alt="" />
+                      <div className="wrap-mask-black"></div>
+                      <div className="portfolio-wrap-center-section text-center">
+                        <a href={project.fancyboxLink} data-fancybox="" className="btn btn-portfolio-icon mx-1">
+                          <i className="uil uil-heart size-23"></i>
+                        </a>
+                        <Link to={project.detailsLink} className="btn btn-portfolio-icon animsition-link mx-1">
+                          <i className="uil uil-star size-23"></i>
+                        </Link>
+                      </div>
+                    </div>
+                    <h5 className="mt-3 mb-1">
+                      <Link to="/product" className="link-heading animsition-link">{project.title}</Link>
+                    </h5>
+                    <p className="mb-0">
+                      {project.description}
+                    </p>
                   </div>
-                </div>
-                <h5 className="mt-3 mb-1">
-                  <Link to={project.detailsLink} className="link-heading animsition-link">{project.title}</Link>
-                </h5>
-                <p className="mb-0">
-                  {project.description}
-                </p>
-              </div>
+                </Link>
             </div>
           ))}
         </div>

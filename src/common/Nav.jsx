@@ -9,10 +9,10 @@ function Nav() {
             {isLoggedIn ? (
                 <ul className="navbar-nav mr-xl-4 ml-auto pt-4 pt-xl-0">
                     <li className="nav-item dropdown">
-                        <a className="nav-link">Home</a>
+                        <Link className="nav-link" to="/">Home</Link>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link">Courses</a>
+                        <Link className="nav-link">Courses</Link>
                         <div className="dropdown-content">
                             <div className="dropdown-item animsition-link">
                                 <Link className="dropdown-item" to="/shop-4-col">4 columns</Link>
@@ -24,13 +24,13 @@ function Nav() {
                         </div>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link">MCQ's</a>
+                        <Link className="nav-link" to="/">MCQ's</Link>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link">Updates</a>
+                        <Link className="nav-link" to="/blog">Updates</Link>
                     </li>
                     <li className="nav-item dropdown">
-                        <a className="nav-link">Contact us</a>
+                        <Link className="nav-link" to="/">Contact us</Link>
                     </li>
                 </ul>
             ) : (

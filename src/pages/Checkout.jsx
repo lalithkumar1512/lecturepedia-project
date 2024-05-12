@@ -33,7 +33,7 @@ function Checkout() {
                                     Checkout
                                 </h2>
                                 <p className="lead mb-0 title-text-left-line-small">
-                                    A clean layout for a stylish e-commerce.
+
                                 </p>
                             </div>
                             <div className="col-lg-auto align-self-center mt-4 mt-lg-0">

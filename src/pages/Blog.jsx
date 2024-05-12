@@ -30,13 +30,9 @@ const Blog = () => {
           <div className="container-fluid">
             <div className="row">
               <div className="col-12 text-left filter-sorting pb-4">
-				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative active" data-filter="*">all posts<span className="btn-filter-icon-small bg-dark color-white">9</span></button>
-				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".fashion">fashion <span className="btn-filter-icon-small bg-dark color-white">2</span></button>
-				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".lifestyle">lifestyle <span className="btn-filter-icon-small bg-dark color-white">3</span></button>
-				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".health">health <span className="btn-filter-icon-small bg-dark color-white">4</span></button>
-				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".travel">travel <span className="btn-filter-icon-small bg-dark color-white">5</span></button>
-				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".tech">tech <span className="btn-filter-icon-small bg-dark color-white">2</span></button>
-				<button className="btn btn-filter-tag-small font-weight-700 filter position-relative" data-filter=".sports">sports <span className="btn-filter-icon-small bg-dark color-white">2</span></button>
+				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative active" data-filter="*">All</button>
+				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".fashion">Category 1</button>
+				<button className="btn btn-filter-tag-small font-weight-700 filter mr-3 position-relative" data-filter=".lifestyle">Category 2</button>
               </div>
             </div>
           </div>
@@ -44,7 +40,7 @@ const Blog = () => {
 
         <div className="filter-wrapper-mix portfolio-1400 over-initial">
           <div className="mix mb-4 over-initial health travel">
-            <Link to="/post-5" className="animsition-link">
+            <Link to="/singleBlog" className="animsition-link">
               <div className="portfolio-wrap-2 img-wrap">
                 <div className="blog-date bg-primary"><p className="mb-0 color-white font-weight-600 size-13">21.Sep</p></div>
                 <div className="section border-4">
@@ -59,7 +55,7 @@ const Blog = () => {
             </Link>
           </div>
           <div className="mix mb-4 over-initial health travel">
-            <Link to="/post-1" className="animsition-link">
+            <Link to="/singleBlog" className="animsition-link">
               <div className="portfolio-wrap-2 img-wrap">
                 <div className="blog-date bg-primary"><p className="mb-0 color-white font-weight-600 size-13">21.Sep</p></div>
                 <div className="section border-4">
@@ -74,7 +70,7 @@ const Blog = () => {
             </Link>
           </div>
           <div className="mix mb-4 over-initial health travel">
-            <Link to="/post-1" className="animsition-link">
+            <Link to="/singleBlog" className="animsition-link">
               <div className="portfolio-wrap-2 img-wrap">
                 <div className="blog-date bg-primary"><p className="mb-0 color-white font-weight-600 size-13">21.Sep</p></div>
                 <div className="section border-4">
@@ -89,7 +85,7 @@ const Blog = () => {
             </Link>
           </div>
           <div className="mix mb-4 over-initial health travel">
-            <Link to="/post-1" className="animsition-link">
+            <Link to="/singleBlog" className="animsition-link">
               <div className="portfolio-wrap-2 img-wrap">
                 <div className="blog-date bg-primary"><p className="mb-0 color-white font-weight-600 size-13">21.Sep</p></div>
                 <div className="section border-4">
@@ -104,7 +100,7 @@ const Blog = () => {
             </Link>
           </div>
           <div className="mix mb-4 over-initial health travel">
-            <Link to="/post-1" className="animsition-link">
+            <Link to="/singleBlog" className="animsition-link">
               <div className="portfolio-wrap-2 img-wrap">
                 <div className="blog-date bg-primary"><p className="mb-0 color-white font-weight-600 size-13">21.Sep</p></div>
                 <div className="section border-4">
@@ -132,31 +128,6 @@ const Blog = () => {
                     {/* More page items */}
                   </ul>
                 </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="section over-hide pb-5 pt-4 bg-light-2">
-        <div className="section-1400">
-          <div className="container-fluid">
-            <div className="row justify-content-center">
-              <div className="col-md-6 col-xl-3 mt-4">
-                <div className="blog-tag-box blog-tag-box-img-1 p-4">
-                  <div className="background-dark-blue-over"></div>
-                  <div className="row">
-                    <div className="col-auto z-bigger text-left align-self-center">
-                      <h6 className="mb-0 color-light">Travel</h6>
-                    </div>
-                    <div className="col z-bigger align-self-center">
-                      <div className="blog-tag-box-divider"></div>
-                    </div>
-                    <div className="col-auto z-bigger">
-                      <div className="blog-tag-box-num color-white font-weight-700 bg-primary size-14">12</div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

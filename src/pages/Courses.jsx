@@ -27,39 +27,41 @@ function Courses() {
                 <div className="section-1400">
                     <div className="container-fluid">
                         <div className="row shop-mix-wrapper-1">
-                            <div className="col-sm-6 col-lg-4 pb-4">
-                                <div className="section shop-wrap-3 img-wrap border-4">
-                                    <img className="border-4" src={course} alt="" />
-                                    <div className="shop-wrap-2-left">
-                                        <div className="shop-wrap-2-left-circle bg-primary color-white size-13 font-weight-600">-25%</div>
-                                    </div>
-                                    <div className="shop-wrap-2-right">
-                                        <Link to="/product-1" className="shop-wrap-2-right-circle animsition-link mt-2"><i className="uil uil-cart size-16"></i></Link>
-                                        <Link to="#" className="shop-wrap-2-right-circle mt-2"><i className="uil uil-heart size-16"></i></Link>
-                                    </div>
-                                    <div className="shop-wrap-2-text">
-                                        <div className="row">
-                                            <div className="col">
-                                                <h6 className="mb-1">
-                                                    <Link to="/product-1" className="link-heading animsition-link">Your product title</Link>
-                                                </h6>
-                                                <p className="lead mb-0 font-weight-400 ">
-                                                    <span className="text-line-through mr-1">$237</span> <span className="color-primary">$169</span>
-                                                </p>
-                                            </div>
-                                            <div className="col-auto align-self-center">
-                                                <p className="mb-0 color-yellow">
-                                                    <i className="uil uil-star"></i>
-                                                    <i className="uil uil-star"></i>
-                                                    <i className="uil uil-star"></i>
-                                                    <i className="uil uil-star"></i>
-                                                    <i className="uil uil-star"></i>
-                                                </p>
+                            <Link to="/product">
+                                <div className="col-sm-6 col-lg-4 pb-4">
+                                    <div className="section shop-wrap-3 img-wrap border-4">
+                                        <img className="border-4" src={course} alt="" />
+                                        <div className="shop-wrap-2-left">
+                                            <div className="shop-wrap-2-left-circle bg-primary color-white size-13 font-weight-600">-25%</div>
+                                        </div>
+                                        <div className="shop-wrap-2-right">
+                                            <Link to="/product" className="shop-wrap-2-right-circle animsition-link mt-2"><i className="uil uil-cart size-16"></i></Link>
+                                            <Link to="#" className="shop-wrap-2-right-circle mt-2"><i className="uil uil-heart size-16"></i></Link>
+                                        </div>
+                                        <div className="shop-wrap-2-text">
+                                            <div className="row">
+                                                <div className="col">
+                                                    <h6 className="mb-1">
+                                                        <Link to="/product" className="link-heading animsition-link">Your product title</Link>
+                                                    </h6>
+                                                    <p className="lead mb-0 font-weight-400 ">
+                                                        <span className="text-line-through mr-1">$237</span> <span className="color-primary">$169</span>
+                                                    </p>
+                                                </div>
+                                                <div className="col-auto align-self-center">
+                                                    <p className="mb-0 color-yellow">
+                                                        <i className="uil uil-star"></i>
+                                                        <i className="uil uil-star"></i>
+                                                        <i className="uil uil-star"></i>
+                                                        <i className="uil uil-star"></i>
+                                                        <i className="uil uil-star"></i>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>

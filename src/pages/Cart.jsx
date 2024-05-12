@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Product from '../assets/img/project-6.jpg';
 
 const CartItem = ({ item }) => {
@@ -66,7 +67,7 @@ const Cart = () => {
           <div className="container-fluid padding-top-bottom-80">
             <div className="row">
               <div className="col-lg">
-                <h2 className="display-8 mb-3">Shopping cart</h2>
+                <h2 className="display-8 mb-3">Cart</h2>
                 <p className="lead mb-0 title-text-left-line-small"></p>
               </div>
               <div className="col-lg-auto align-self-center mt-4 mt-lg-0">
@@ -125,10 +126,10 @@ const Cart = () => {
                 </div>
               </div>
               <div className="col-12 text-lg-right mt-4">
-                <a href="checkout.html" className="btn btn-dark-primary animsition-link">
+                <Link to="/checkout" className="btn btn-dark-primary animsition-link">
                   Proceed to checkout
                   <i className="uil uil-arrow-right size-20 ml-2"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
