@@ -133,22 +133,30 @@ function SignUp() {
     const getCourseNameById = (courseId) => {
         const course = courses.find(course => course.id === courseId);
         return course ? course.name : 'Unknown';
-      };
-    
-      const handleCourseTypeChange = (event) => {
+    };
+
+    const handleCourseTypeChange = async (event) => {
         const selectedCourseTypeId = event.target.value;
-        axios.get(`http://13.60.23.204:9000/api/ga/v1/course/type/${selectedCourseTypeId}/courseLevel`)
-          .then(response => {
-            const levels = response.data.data.map(level => ({
-              id: level.courseLevelId,
-              name: level.courseLevelName
-            }));
-            setCourseLevels(levels);
-          })
-          .catch(error => {
-            console.error('Error fetching course levels:', error);
-          });
-      };
+        setCourseType(selectedCourseTypeId);
+        if (selectedCourseTypeId) {
+            try {
+                const response = await axios.get(`http://13.60.23.204:9000/api/ga/v1/course/level/${selectedCourseTypeId}`);
+                const levels = response.data.data.map(level => ({
+                    id: level.courseLevelId,
+                    name: level.courseLevelName
+                }));
+                setCourseLevels(levels);
+            } catch (error) {
+                console.error('Error fetching course levels:', error);
+                setCourseLevels([]);
+            }
+        } else {
+            setCourseLevels([]);
+        }
+    };
+
+    
+
 
     return (
         <div>
@@ -216,9 +224,10 @@ function SignUp() {
                                             </div>
                                             <div className="col-12 mt-3">
                                                 <div className="section form-group ">
-                                                    <select className="wide form-select form-style big gray-version form-style-with-icon no-shadow section-shadow-blue"
+                                                    <select
+                                                        className="wide form-select form-style big gray-version form-style-with-icon no-shadow section-shadow-blue"
                                                         value={courseType}
-                                                        onChange={e => setCourseType(e.target.value)&&handleCourseTypeChange}
+                                                        onChange={handleCourseTypeChange}
                                                     >
                                                         <option value="">Course Type</option>
                                                         {courses.map(course => (
@@ -230,19 +239,15 @@ function SignUp() {
                                             </div>
                                             <div className="col-12 mt-3">
                                                 <div className="section form-group ">
-                                                    <select className="wide form-select form-style big gray-version form-style-with-icon no-shadow section-shadow-blue"
+                                                    <select
+                                                        className="wide form-select form-style big gray-version form-style-with-icon no-shadow section-shadow-blue"
                                                         value={courseLevel}
                                                         onChange={e => setCourseLevel(e.target.value)}
-                                                        style={{
-                                                            width: '100%',
-                                                            boxSizing: 'border-box',
-                                                        }}
                                                     >
-                                                        <option value=""
-                                                            style={{width: '100%', color: 'black',}}>Course Level</option>
-                                                        <option value="FOUNDATION">FOUNDATION</option>
-                                                        <option value="INTERMEDIATE">INTERMEDIATE</option>
-                                                        <option value="FINAL">FINAL</option>
+                                                        <option value="">Course Level</option>
+                                                        {courseLevels.map(level => (
+                                                            <option key={level.id} value={level.id}>{level.name}</option>
+                                                        ))}
                                                     </select>
                                                     <i className="input-icon big uil uil-signal-alt-3"></i>
                                                 </div>
