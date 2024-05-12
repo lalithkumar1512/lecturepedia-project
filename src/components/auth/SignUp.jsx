@@ -101,7 +101,7 @@ function SignUp() {
             "mail": mail,
             "city": city,
             "courseType": getCourseNameById(courseType),
-            "courseLevel": courseLevel,
+            "courseLevel": getCourseLevelId(courseLevel),
             "password": password,
             "otp": otp
           });
@@ -135,24 +135,37 @@ function SignUp() {
         return course ? course.name : 'Unknown';
     };
 
+    const getCourseLevelId = (courseLevelId) => {
+        const level = courseLevels.find(level => level.id === courseLevelId);
+        return level ? level.name : 'Unknown';
+    };
+
     const handleCourseTypeChange = async (event) => {
         const selectedCourseTypeId = event.target.value;
         setCourseType(selectedCourseTypeId);
-        if (selectedCourseTypeId) {
-            try {
-                const response = await axios.get(`http://13.60.23.204:9000/api/ga/v1/course/level/${selectedCourseTypeId}`);
-                const levels = response.data.data.map(level => ({
-                    id: level.courseLevelId,
-                    name: level.courseLevelName
-                }));
-                setCourseLevels(levels);
-            } catch (error) {
-                console.error('Error fetching course levels:', error);
-                setCourseLevels([]);
+        console.log(selectedCourseTypeId);
+
+        let config = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `http://13.60.23.204:9000/api/ga/v1/course/level/${selectedCourseTypeId}`,
+            headers: {
+                'Content-Type': 'application/json'
             }
-        } else {
-            setCourseLevels([]);
-        }
+          };
+          
+          axios.request(config)
+          .then((response) => {
+            const levels = response.data.data.map(level => ({
+                id: level._id,
+                name: level.courseLevel
+            }));    
+            setCourseLevels(levels);       
+            console.log(levels);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     };
 
     
@@ -242,7 +255,7 @@ function SignUp() {
                                                     <select
                                                         className="wide form-select form-style big gray-version form-style-with-icon no-shadow section-shadow-blue"
                                                         value={courseLevel}
-                                                        onChange={e => setCourseLevel(e.target.value)}
+                                                        onChange={e => setCourseLevel(e.target.value)} 
                                                     >
                                                         <option value="">Course Level</option>
                                                         {courseLevels.map(level => (
