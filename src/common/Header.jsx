@@ -22,8 +22,11 @@ function Header() {
                             <div className="row">
                                 <div className="col-12">
                                     <nav className="navbar navbar-expand-xl navbar-primary">
-                                        <Link className="navbar-brand animsition-link" to="/">
+{/*                                         <Link className="navbar-brand animsition-link size-30" to="/"> */}
 {/*                                             <img src={logo} alt="logo" /> */}
+{/*                                         </Link> */}
+                                        <Link className="navbar-brand animsition-link size-30" to="/">
+                                             LECTUREPEDIA
                                         </Link>
                                         <button className="navbar-toggler" type="button" onClick={toggle}>
                                             <span className="navbar-toggler-icon"></span>
@@ -34,13 +37,13 @@ function Header() {
                                         {isLoggedIn ?
                                             <>
                                                 <a href="#" className="btn btn-icon-transparent btn-44 mt-4 mt-xl-0">
-                                                    <i className="uil uil-heart size-20 color-white"></i>
+                                                    <i className="uil uil-heart size-20 "></i>
                                                 </a>
                                                 <a href="#" className="btn btn-icon-transparent btn-44 mt-4 mt-xl-0 position-relative" onClick={toggleCartModal}>
-                                                    <i className="uil uil-cart size-20 color-white"></i>
+                                                    <i className="uil uil-cart size-20 "></i>
                                                 </a>
                                                 <a href="#" className="btn btn-icon-transparent btn-44 mt-4 mt-xl-0" onClick={toggleSearchModal}>
-                                                    <i className="uil uil-search size-20 color-white"></i>
+                                                    <i className="uil uil-search size-20 "></i>
                                                 </a>
                                             </> :
                                             <>

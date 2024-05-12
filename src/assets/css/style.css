@@ -151,8 +151,9 @@ a:hover {
 .dropdown-content {
   display: none;
   position: absolute;
+  min-width: 200px;
   background-color: white;
-  border-top: 5px solid #EDEDED;
+  border-top: 3px solid #2E4F6B;
 }
 
 .dropdown:hover .dropdown-content {
@@ -160,18 +161,77 @@ a:hover {
 }
 
 .navigation-wrap {
-    background-color: #2E4F6B !important;
+    background-color: #fff !important;
 }
 
-.nav-link {
-    color: #EDEDED !important;
-}
 .nav-link:hover {
     color: #fff !important;
 }
 
 .footer {
     background-color: #2E4F6B;
+}
+
+
+
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-toggle:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-nav .dropdown-content .nested-dropdown-content {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top:0;
+    min-width: 200px;
+    background-color: white;
+    border-top: 3px solid #2E4F6B;
+    z-index: 3;
+}
+
+.navbar-nav .dropdown-item:hover .nested-dropdown-content {
+    display: block;
+}
+
+.nav-item.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navbar-brand {
+    display: flex !important;
+    padding-top: 10px !important;
+    color: #2E4F6B !important;
+    border-radius: 10px !important;
+    font-weight: 600;
+}
+
+.navbar-brand img {
+     padding-right: 20px !important;
+     width: 200px !important;
+}
+
+/*
+.navbar-brand {
+    display: flex !important;
+    padding: 10px !important;
+    color: #2E4F6B !important;
+    border-radius: 10px !important;
+    font-weight: 600;
+    background-color: #2E4F6B !important;
+}
+
+.navbar-brand img {
+     width: 150px !important;
+}
+*/
+
+.home-app-section img {
+   width: 200px;
 }
 
 /* #Preloader style
@@ -1888,6 +1948,7 @@ pre {
 	border-color: transparent;
     transition: all 300ms linear;
 }
+
 
 /* #Forms
 ================================================== */

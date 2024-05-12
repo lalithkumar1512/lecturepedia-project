@@ -38,10 +38,6 @@ const Footer = () => {
                                 <a href="" className="link link-gray size-18 mb-1" >+38(0)6 34 62 54 77</a>
                                 <div className="clearfix w-100"></div>
                                 <a href="" className="link link-gray size-20 mb-1">lecturepedia@gmail.com</a>
-                                <h5 className="mb-4 mt-5 color-white">Follow</h5>
-                                <a href="" className="link link-gray mb-1 mr-2" data-hover="Instagram">Instagram</a>
-                                <a href="" className="link link-gray mb-1 mr-2" data-hover="Twitter">Twitter</a>
-                                <a href="" className="link link-gray mb-1" data-hover="LinkedIn">LinkedIn</a>
                             </div>
                             <div className="col-12 mt-5 mb-4">
                                 <div className="section divider divider-light"></div>
