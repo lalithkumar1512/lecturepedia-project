@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function ForgotPassword() {
     const navigate = useNavigate();
@@ -7,11 +8,36 @@ function ForgotPassword() {
     const [otp, setOtp] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [otpSent, setOtpSent] = useState(false);
+
+    const validatePhoneNumber = (number) => {
+        const re = /^\d{10}$/;
+        return re.test(number);
+    };
 
     const validatePassword = (password) => {
          const re = /^(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])[A-Za-z\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/;
          return re.test(password);
     };
+
+    const handleVerify = async (e) => {
+        e.preventDefault();
+        if (validatePhoneNumber(phoneNumber)) {
+            setOtpSent(true);
+            try {
+                const response = await axios.post(`http://13.60.23.204:9000/api/ga/v1/auth/sendOtp`, {
+                  phoneNumber: phoneNumber
+                }).then(response => {
+                  console.log(response);
+                })
+              } catch (error) {
+                console.error('Error sending OTP (Enter the valid phone number) ');
+              }
+            alert('An OTP is sent to your Phone Number');
+        } else {
+            alert('Please enter a valid 10-digit phone number.');
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +53,31 @@ function ForgotPassword() {
             alert("Passwords doesn't match");
             return;
         }
-        navigate('/login');
+
+        let data = JSON.stringify({
+            "phoneNumber": phoneNumber,
+            "password": password,
+            "otp": otp
+          });
+          
+          let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `http://13.60.23.204:9000/api/ga/v1/auth/forgot`,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data : data
+          };
+          
+          axios.request(config)
+          .then((response) => {
+            alert(JSON.stringify(response.data.message));
+            navigate('/login')
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
     };
 
@@ -81,7 +131,7 @@ function ForgotPassword() {
                                             <div className="col pr-0">
                                             </div>
                                             <div className="col-auto align-self-center text-right pl-0">
-                                                <button className=" resend-btn link link-gray-primary size-15 font-weight-500">Resend OTP</button>
+                                                <button className=" resend-btn link link-gray-primary size-15 font-weight-500" onClick={handleVerify}>Resend OTP</button>
                                             </div>
                                         </div>
                                         <div className="row mt-4">

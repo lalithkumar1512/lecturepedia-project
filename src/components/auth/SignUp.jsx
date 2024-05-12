@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function SignUp() {
     const navigate = useNavigate();
@@ -14,6 +15,8 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [otp, setOtp] = useState('');
     const [termsAccepted, setTermsAccepted] = useState(false);
+    const [courses, setCourses] = useState([]);
+    const [courseLevels, setCourseLevels] = useState([]);
 
 
     const validateEmail = (email) => {
@@ -31,15 +34,39 @@ function SignUp() {
         return re.test(password);
     };
 
-    const handleVerify = (e) => {
+    const handleVerify = async (e) => {
         e.preventDefault();
         if (validatePhoneNumber(phoneNumber)) {
             setPhoneNumberVerified(true);
+            try {
+                const response = await axios.post(`http://13.60.23.204:9000/api/ga/v1/auth/sendOtp`, {
+                  phoneNumber: phoneNumber
+                }).then(response => {
+                  console.log(response);
+                })
+              } catch (error) {
+                console.error('Error sending OTP (Enter valid phone number) ');
+              }            
             alert('Phone number verified successfully! An OTP is sent to your Phone Number');
         } else {
             alert('Please enter a valid 10-digit phone number.');
         }
     }
+
+    useEffect(() => {
+    axios.get(`http://13.60.23.204:9000/api/ga/v1/course/type`)
+      .then(response => {
+        // Extracting data from the response and storing in an array
+        const courseData = response.data.data.map(course => ({
+            id: course._id,
+            name: course.courseType
+            }));
+            setCourses(courseData);  
+        })
+        .catch(error => {
+            console.error('Error fetching course data:', error);
+        });
+    }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -68,8 +95,60 @@ function SignUp() {
             return;
         }
         console.log('Form Submitted', { username, mail, password });
-        navigate('/');
+        let data = JSON.stringify({
+            "name": username,
+            "phoneNumber": phoneNumber,
+            "mail": mail,
+            "city": city,
+            "courseType": getCourseNameById(courseType),
+            "courseLevel": courseLevel,
+            "password": password,
+            "otp": otp
+          });
+          
+          console.log(data);
+          
+          let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `http://13.60.23.204:9000/api/ga/v1/auth/signup`,
+            headers: { 
+              'Content-Type': 'application/json'
+            },
+            data : data
+          };
+          
+          axios.request(config)
+          .then((response) => {
+              const token = response.data.token; 
+              localStorage.setItem('token', token);
+            console.log(JSON.stringify(response.data));
+            navigate('/');
+          })
+          .catch((error) => {
+            alert(error.response.data.message);
+          });
     };
+
+    const getCourseNameById = (courseId) => {
+        const course = courses.find(course => course.id === courseId);
+        return course ? course.name : 'Unknown';
+      };
+    
+      const handleCourseTypeChange = (event) => {
+        const selectedCourseTypeId = event.target.value;
+        axios.get(`http://13.60.23.204:9000/api/ga/v1/course/type/${selectedCourseTypeId}/courseLevel`)
+          .then(response => {
+            const levels = response.data.data.map(level => ({
+              id: level.courseLevelId,
+              name: level.courseLevelName
+            }));
+            setCourseLevels(levels);
+          })
+          .catch(error => {
+            console.error('Error fetching course levels:', error);
+          });
+      };
 
     return (
         <div>
@@ -139,11 +218,12 @@ function SignUp() {
                                                 <div className="section form-group ">
                                                     <select className="wide form-select form-style big gray-version form-style-with-icon no-shadow section-shadow-blue"
                                                         value={courseType}
-                                                        onChange={e => setCourseType(e.target.value)}
+                                                        onChange={e => setCourseType(e.target.value)&&handleCourseTypeChange}
                                                     >
                                                         <option value="">Course Type</option>
-                                                        <option value="Front End Developer">Front End Developer</option>
-                                                        <option value="Back End Developer">Back End Developer</option>
+                                                        {courses.map(course => (
+                                                            <option key={course.id} value={course.id}>{course.name}</option>
+                                                        ))}
                                                     </select>
                                                     <i className="input-icon big uil uil-book-open"></i>
                                                 </div>
@@ -160,8 +240,9 @@ function SignUp() {
                                                     >
                                                         <option value=""
                                                             style={{width: '100%', color: 'black',}}>Course Level</option>
-                                                        <option value="Front End Developer">Front End Developer</option>
-                                                        <option value="Back End Developer">Back End Developer</option>
+                                                        <option value="FOUNDATION">FOUNDATION</option>
+                                                        <option value="INTERMEDIATE">INTERMEDIATE</option>
+                                                        <option value="FINAL">FINAL</option>
                                                     </select>
                                                     <i className="input-icon big uil uil-signal-alt-3"></i>
                                                 </div>
@@ -210,7 +291,7 @@ function SignUp() {
                                             </div>
                                             <div className="col-12">
                                                 <p className="mt-4 mb-0 text-sm-center size-16">
-                                                    Already registered? <Link to="/signUp" className="link link-dark-primary-2 link-normal"> Sign in </Link>
+                                                    Already registered? <Link to="/login" className="link link-dark-primary-2 link-normal"> Sign in </Link>
                                                 </p>
                                             </div>
                                         </div>

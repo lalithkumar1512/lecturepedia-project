@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
     const navigate = useNavigate();
@@ -13,7 +14,33 @@ function Login() {
             alert('Please fill in all fields.');
             return;
         }
-        navigate('/');
+
+        let data = JSON.stringify({
+            "phoneNumber": phoneNumber,
+            "password": password
+        });
+
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `http://13.60.23.204:9000/api/ga/v1/auth/login`,
+            headers: { 
+            'Content-Type': 'application/json'
+            },
+            data : data
+        };
+
+        axios.request(config)
+        .then((response) => {
+            const token = response.data.token; 
+            localStorage.setItem('token', token);
+            console.log(JSON.stringify(response.data));
+            navigate('/');
+        })
+        .catch((error) => {
+            alert(error.response.data.message);
+        });
+        
     };
 
     return (
